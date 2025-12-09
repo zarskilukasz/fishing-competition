@@ -149,3 +149,51 @@ export async function PATCH(
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) {
+    return NextResponse.json({ error: 'Invalid ID format' }, { status: 400 });
+  }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+
+  if (authError || !user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  // Check ownership
+  const { data: competition, error: fetchError } = await supabase
+    .from('competitions')
+    .select('owner_id')
+    .eq('id', id)
+    .single();
+
+  if (fetchError) {
+    if (fetchError.code === 'PGRST116') return NextResponse.json({ error: 'Competition not found' }, { status: 404 });
+    return NextResponse.json({ error: fetchError.message }, { status: 500 });
+  }
+
+  if (competition.owner_id !== user.id) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
+  }
+
+  const { error } = await supabase
+    .from('competitions')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ success: true });
+}
