@@ -1,6 +1,6 @@
 # Tech Stack
 
-This document outlines the technology stack used in the Fishing Competition project, generated based on `package.json` and `components.json`.
+This document outlines the technology stack used in the Fishing Competition project, generated based on `package.json`.
 
 ## Core Framework
 - **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
@@ -11,6 +11,12 @@ This document outlines the technology stack used in the Fishing Competition proj
 - **CSS Framework:** [Tailwind CSS 4](https://tailwindcss.com/)
 - **Component Primitives:** [shadcn/ui](https://ui.shadcn.com/) (Radix UI based)
 - **Icons:** [Lucide React](https://lucide.dev/)
+- **Theming:** `next-themes`
+- **Toasts:** `sonner`
+- **Drawers:** `vaul`
+- **Carousel:** `embla-carousel-react`
+- **OTP Input:** `input-otp`
+- **Layout:** `react-resizable-panels`
 - **Utilities:**
   - `clsx` & `tailwind-merge` for class name management
   - `class-variance-authority` (CVA) for component variants
@@ -26,12 +32,20 @@ This document outlines the technology stack used in the Fishing Competition proj
 - **SSR Helper:** `@supabase/ssr`
 
 ## Forms & Validation
-- **Form Management:** [React Hook Form](https://react-hook-form.com/)
+- **Form Management:** 
+  - [`@tanstack/react-form`](https://tanstack.com/form/latest)
 - **Schema Validation:** [Zod](https://zod.dev/)
+
+## PDF Generation
+- **Library:** `@react-pdf/renderer`
+
+## Virtualization
+- **Library:** `@tanstack/react-virtual`
 
 ## Utilities
 - **Date Handling:** [date-fns](https://date-fns.org/)
 - **Linting:** ESLint 9
+- **Environment:** `dotenv`
 
 ## Configuration
 - **Shadcn Config:** `new-york` style, `neutral` base color, CSS variables enabled.
