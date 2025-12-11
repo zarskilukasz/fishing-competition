@@ -107,3 +107,4 @@ The current version (MVP) covers the following key functionalities:
 ## License
 
 This project is currently marked as **Private**.
+# fishing-competition
