@@ -132,7 +132,12 @@ export function ForgotPasswordForm({
             Wprowadź swój email poniżej, aby zresetować hasło
           </p>
         </div>
-        <form.Field name="email">
+        <form.Field
+          name="email"
+          validators={{
+            onBlur: ForgotPasswordSchema.shape.email,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="email">Adres email</FieldLabel>

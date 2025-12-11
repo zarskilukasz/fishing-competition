@@ -73,7 +73,12 @@ export function LoginForm({
             Wprowadź swój email poniżej, aby się zalogować
           </p>
         </div>
-        <form.Field name="email">
+        <form.Field
+          name="email"
+          validators={{
+            onBlur: LoginSchema.shape.email,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="email">Adres email</FieldLabel>
@@ -93,7 +98,12 @@ export function LoginForm({
             </Field>
           )}
         </form.Field>
-        <form.Field name="password">
+        <form.Field
+          name="password"
+          validators={{
+            onBlur: LoginSchema.shape.password,
+          }}
+        >
           {(field) => (
             <Field>
               <div className="flex items-center">

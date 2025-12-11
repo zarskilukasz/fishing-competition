@@ -72,16 +72,21 @@ export function ResetPasswordForm({
             Wypełnij formularz poniżej, aby zresetować hasło
           </p>
         </div>
-        <form.Field name="password">
+        <form.Field
+          name="password"
+          validators={{
+            onBlur: ResetPasswordSchema.shape.password,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="password">Hasło</FieldLabel>
-              <Input 
-                id="password" 
-                type="password" 
-                value={field.state.value} 
-                onBlur={field.handleBlur} 
-                onChange={(e) => field.handleChange(e.target.value)} 
+              <Input
+                id="password"
+                type="password"
+                value={field.state.value}
+                onBlur={field.handleBlur}
+                onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="********"
               />
               {field.state.meta.errors && (
@@ -92,16 +97,21 @@ export function ResetPasswordForm({
             </Field>
           )}
         </form.Field>
-        <form.Field name="confirmPassword">
+        <form.Field
+          name="confirmPassword"
+          validators={{
+            onBlur: ResetPasswordSchema.shape.confirmPassword,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="confirm-password">Potwierdź hasło</FieldLabel>
-              <Input 
-                id="confirm-password" 
-                type="password" 
-                value={field.state.value} 
-                onBlur={field.handleBlur} 
-                onChange={(e) => field.handleChange(e.target.value)} 
+              <Input
+                id="confirm-password"
+                type="password"
+                value={field.state.value}
+                onBlur={field.handleBlur}
+                onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="********"
               />
               {field.state.meta.errors && (

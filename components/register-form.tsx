@@ -114,7 +114,12 @@ export function RegisterForm({
             Wypełnij formularz poniżej, aby utworzyć konto
           </p>
         </div>
-        <form.Field name="email">
+        <form.Field
+          name="email"
+          validators={{
+            onBlur: RegisterSchema.shape.email,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="email">Adres email</FieldLabel>
@@ -137,7 +142,12 @@ export function RegisterForm({
             </Field>
           )}
         </form.Field>
-        <form.Field name="password">
+        <form.Field
+          name="password"
+          validators={{
+            onBlur: RegisterSchema.shape.password,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="password">Hasło</FieldLabel>
@@ -160,7 +170,12 @@ export function RegisterForm({
             </Field>
           )}
         </form.Field>
-        <form.Field name="confirmPassword">
+        <form.Field
+          name="confirmPassword"
+          validators={{
+            onBlur: RegisterSchema.shape.confirmPassword,
+          }}
+        >
           {(field) => (
             <Field>
               <FieldLabel htmlFor="confirm-password">Potwierdź hasło</FieldLabel>
