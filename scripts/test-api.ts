@@ -47,7 +47,7 @@ async function runTests() {
   console.log('✅ Authenticated as:', userId);
 
   // Helper for requests
-  async function apiRequest(endpoint: string, method: string = 'GET', body?: any) {
+  async function apiRequest(endpoint: string, method: string = 'GET', body?: unknown) {
     // We need to simulate the cookie that Next.js Server Components expect.
     // However, createServerClient in lib/supabase/server.ts reads from `cookies()`.
     // When calling via fetch, we must pass the cookie header.
@@ -90,7 +90,7 @@ async function runTests() {
 
       const data = await response.json().catch(() => ({}));
       return { status: response.status, data };
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`\n❌ API Request Failed: ${method} ${endpoint}`);
       console.error('Error details:', error);
       if (error.cause) {

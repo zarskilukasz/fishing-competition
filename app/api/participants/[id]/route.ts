@@ -3,29 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
-const updateParticipantSchema = z.object({
-  peg_number: z.number().int().optional().nullable(),
-  is_disqualified: z.boolean().optional(),
-  is_present: z.boolean().optional(), // Adding this as per plan, though not originally in interface, DB has it? Let's check DB types.
-});
-
-// Checking Types: 
-// export interface Participant { ... peg_number: number | null; is_disqualified: boolean; ... } 
-// DB Schema doesn't explicitly show 'is_present' in provided typescript interface in previous turns.
-// Let's re-read the types provided in context.
-// Lines 21-31: no 'is_present'.
-// Line 202 in Plan says: "Jeśli is_present jest false -> peg_number musi być NULL."
-// Wait, if columns are missing from DB types, I should check the schema file provided or assume they exist?
-// User provided `src/types/database.types.ts`.
-// Looking at `src/types/database.types.ts`:
-// export interface Participant { ... peg_number: number | null; is_disqualified: boolean; ... }
-// No `is_present`.
-// I will omit `is_present` for now or assume it is handled via `peg_number` being null?
-// Actually, `is_disqualified` is there.
-// If the plan mentions `is_present`, maybe the schema is outdated or plan is ahead.
-// I'll stick to what is in TS types: `peg_number`, `is_disqualified`. 
-// If I need to support `is_present` logic (e.g. absent user has no peg), I can infer presence from peg_number or just ignore for now.
-// Let's implement based on TS types to be safe.
 
 const schema = z.object({
   peg_number: z.number().int().optional().nullable(),

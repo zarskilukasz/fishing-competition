@@ -70,7 +70,7 @@ export async function POST(
     // Given the previous pattern, let's trust RLS or assume 'competition_id' link is enough for now, 
     // but typically we should ensure the user owns the competition before adding categories to it.
     // Let's do a quick check to ensure competition exists and belongs to user.
-    const { data: stringData, count, error: compError } = await supabase
+    const { count, error: compError } = await supabase
       .from('competitions')
       .select('owner_id', { count: 'exact', head: true })
       .eq('id', id)

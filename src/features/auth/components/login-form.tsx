@@ -54,9 +54,8 @@ export function LoginForm() {
       }}
       className="space-y-4"
     >
-      <form.Field
-        name="email"
-        children={(field) => (
+      <form.Field name="email">
+        {(field) => (
           <div className="space-y-2">
             <Label htmlFor={field.name}>Email</Label>
             <Input
@@ -75,11 +74,10 @@ export function LoginForm() {
             ) : null}
           </div>
         )}
-      />
+      </form.Field>
 
-      <form.Field
-        name="password"
-        children={(field) => (
+      <form.Field name="password">
+        {(field) => (
           <div className="space-y-2">
             <Label htmlFor={field.name}>Hasło</Label>
             <Input
@@ -98,16 +96,15 @@ export function LoginForm() {
             ) : null}
           </div>
         )}
-      />
+      </form.Field>
 
-      <form.Subscribe
-        selector={(state) => [state.canSubmit, state.isSubmitting]}
-        children={([canSubmit, isSubmitting]) => (
+      <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
+        {([canSubmit, isSubmitting]) => (
           <Button className="w-full" type="submit" disabled={!canSubmit}>
             {isSubmitting ? "Logowanie..." : "Zaloguj się"}
           </Button>
         )}
-      />
+      </form.Subscribe>
     </form>
   )
 }

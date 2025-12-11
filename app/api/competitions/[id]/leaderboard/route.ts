@@ -89,10 +89,10 @@ export async function GET(
         first_name: p.first_name,
         last_name: p.last_name,
         peg_number: p.peg_number,
-        // @ts-expect-error Supabase join returns object or array, generally object for single relation if setup correctly, but 'categories' might be array if one-to-many reverse? 
-        // Actually here we used `category:categories(...)` which usually hints singular if it's a FK relation.
+        // Supabase join returns object or array, generally object for single relation if setup correctly
+        // Here we used `category:categories(...)` which usually hints singular if it's a FK relation.
         // Assuming singular object or null.
-        category_name: Array.isArray(p.category) ? p.category[0]?.name : (p.category as any)?.name
+        category_name: Array.isArray(p.category) ? p.category[0]?.name : (p.category as { name: string } | null)?.name
       },
       total_weight: totalWeight,
       catches_count: catchesCount,
@@ -105,7 +105,7 @@ export async function GET(
 
   // 5. Assign Ranks
   const distinctRankings: RankingEntry[] = [];
-  let currentRank = 1;
+  const currentRank = 1;
 
   for (let i = 0; i < results.length; i++) {
     const entry = results[i];

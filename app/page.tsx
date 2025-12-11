@@ -1,63 +1,63 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Fish, Trophy, FileText } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex min-h-screen items-center justify-center bg-background font-sans">
+      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-center py-16 px-8 text-center">
+        <div className="mb-12">
+          <h1 className="text-5xl font-bold text-foreground mb-10">
+            System zawodów wędkarskich
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Profesjonalne narzędzie dla organizatorów zawodów wędkarskich.
+            Automatyzuj proces sędziowania i zarządzaj zawodami w czasie rzeczywistym.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
+          <Link
+            href="/login"
+            className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-primary px-8 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-48"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Zaloguj się
+          </Link>
+          <Link
+            href="/register"
+            className="inline-flex h-14 w-full items-center justify-center rounded-lg border border-border bg-secondary px-8 text-lg font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-48"
           >
-            Documentation
-          </a>
+            Dołącz do nas
+          </Link>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
+          <div className="flex flex-col items-center">
+            <Fish className="mb-4 h-12 w-12 text-primary" />
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              Rejestruj połowy
+            </h3>
+            <p className="text-muted-foreground text-center">
+              Łatwe wprowadzanie wyników ważenia przez sędziów podczas zawodów
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Trophy className="mb-4 h-12 w-12 text-primary" />
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              Rankingi na żywo
+            </h3>
+            <p className="text-muted-foreground text-center">
+              Automatyczne generowanie i aktualizacja rankingów w czasie rzeczywistym
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FileText className="mb-4 h-12 w-12 text-primary" />
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              Raporty i eksport
+            </h3>
+            <p className="text-muted-foreground text-center">
+              Generowanie czytelnych raportów PDF z wynikami zawodów
+            </p>
+          </div>
         </div>
       </main>
     </div>
