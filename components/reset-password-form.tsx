@@ -46,7 +46,7 @@ export function ResetPasswordForm({
         toast.success("Hasło zostało zmienione", {
           description: "Możesz teraz zalogować się nowym hasłem.",
         })
-        router.push("/login")
+        router.push("/auth/login")
       } catch (error) {
         console.error(error)
         toast.error("Wystąpił nieoczekiwany błąd")

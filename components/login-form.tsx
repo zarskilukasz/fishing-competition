@@ -99,7 +99,7 @@ export function LoginForm({
               <div className="flex items-center">
                 <FieldLabel htmlFor="password">Hasło</FieldLabel>
                 <a
-                  href="/forgot-password"
+                  href="/auth/forgot-password"
                   className="ml-auto text-sm underline-offset-4 hover:underline"
                 >
                   Zapomniałeś hasła?
@@ -135,7 +135,7 @@ export function LoginForm({
         <Field>
           <FieldDescription className="text-center">
             Nie masz konta?{" "}
-            <a href="/register" className="underline underline-offset-4">
+            <a href="/auth/register" className="underline underline-offset-4">
               Zarejestruj się
             </a>
           </FieldDescription>

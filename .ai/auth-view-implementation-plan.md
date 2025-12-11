@@ -84,9 +84,5 @@ export const RegisterSchema = z.object({
 ## 11. Kroki implementacji
 1.  Stworzyć schematy Zod w `src/features/auth/schemas.ts`.
 2.  Zaimplementować generyczny layout `AuthLayout`.
-<<<<<<< HEAD
-3.  Zaimplementować `LoginForm` i `RegisterForm` z użyciem `react-hook-form`.
-=======
 3.  Zaimplementować `LoginForm` i `RegisterForm` z użyciem `@tanstack/react-form`.
->>>>>>> 028462b (feat: init)
 4.  Skonfigurować przekierowania w Middleware (chronione ruty).

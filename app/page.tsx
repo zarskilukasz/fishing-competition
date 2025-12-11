@@ -17,13 +17,13 @@ export default function Home() {
 
         <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
           <Link
-            href="/login"
+            href="/auth/login"
             className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-primary px-8 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-48"
           >
             Zaloguj się
           </Link>
           <Link
-            href="/register"
+            href="/auth/register"
             className="inline-flex h-14 w-full items-center justify-center rounded-lg border border-border bg-secondary px-8 text-lg font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-48"
           >
             Dołącz do nas

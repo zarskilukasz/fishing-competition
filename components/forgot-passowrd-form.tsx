@@ -37,7 +37,7 @@ export function ForgotPasswordForm({
         setRateLimitError(null)
 
         const { error } = await supabase.auth.resetPasswordForEmail(value.email, {
-          redirectTo: `${window.location.origin}/reset-password`,
+          redirectTo: `${window.location.origin}/auth/reset-password`,
         })
 
         if (error) {
@@ -104,7 +104,7 @@ export function ForgotPasswordForm({
                 Wyślij ponownie
               </button>
               {" | "}
-              <a href="/login" className="underline underline-offset-4">
+              <a href="/auth/login" className="underline underline-offset-4">
                 Powrót do logowania
               </a>
             </FieldDescription>
@@ -178,7 +178,7 @@ export function ForgotPasswordForm({
         <Field>
           <FieldDescription className="text-center">
             Pamiętasz hasło?{" "}
-            <a href="/login" className="underline underline-offset-4">
+            <a href="/auth/login" className="underline underline-offset-4">
               Zaloguj się
             </a>
           </FieldDescription>

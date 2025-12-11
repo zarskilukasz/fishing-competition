@@ -86,7 +86,7 @@ export function RegisterForm({
           <FieldSeparator />
           <Field>
             <FieldDescription className="text-center">
-              <a href="/login" className="underline underline-offset-4">
+              <a href="/auth/login" className="underline underline-offset-4">
                 Przejdź do logowania
               </a>
             </FieldDescription>
@@ -196,7 +196,7 @@ export function RegisterForm({
         <Field>
           <FieldDescription className="text-center">
             Masz już konto?{" "}
-            <a href="/login" className="underline underline-offset-4">
+            <a href="/auth/login" className="underline underline-offset-4">
               Zaloguj się
             </a>
           </FieldDescription>
