@@ -108,3 +108,7 @@ The current version (MVP) covers the following key functionalities:
 
 This project is currently marked as **Private**.
 # fishing-competition
+<<<<<<< HEAD
+=======
+# fishing-competition
+>>>>>>> d22da63 (first commit)
